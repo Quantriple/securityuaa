@@ -1,0 +1,3 @@
+# securityuaa
+securityuaa
+这是个整合springsecurity工程，后续添加netty物联网模块
