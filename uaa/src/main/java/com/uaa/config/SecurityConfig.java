@@ -12,7 +12,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //super.configure(http);
-     //   http.
-        http.formLogin(Customizer.withDefaults()).authorizeRequests(req-> req.mvcMatchers("/api/greeting").authenticated());
+        //   http.
+        // http.formLogin(Customizer.withDefaults()).authorizeRequests(req-> req.mvcMatchers("/api/greeting").authenticated());
+        http.csrf(csrf -> csrf.disable()).
+                httpBasic(Customizer.withDefaults()).
+                formLogin(form -> form.loginPage("/")).
+                authorizeRequests(req -> req.mvcMatchers("/api/**").authenticated());
     }
 }
