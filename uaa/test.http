@@ -74,7 +74,7 @@ Authorization: Bearer
 
 ###
 GET {{host}}/api/greeting HTTP/1.1
-//Authorization: Basic user 1c5d21de-60b3-46ba-ac61-f278722c2647
+Authorization: Basic user 1c5d21de-60b3-46ba-ac61-f278722c2647
 
 
 ###

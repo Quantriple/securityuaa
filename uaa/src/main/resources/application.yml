@@ -3,3 +3,10 @@ server:
 logging:
   level:
     root: debug
+
+
+spring:
+  security:
+    user:
+      name: user
+      password: 12345678
