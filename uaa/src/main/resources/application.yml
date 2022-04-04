@@ -10,3 +10,4 @@ spring:
     user:
       name: user
       password: 12345678
+      roles: admin,user

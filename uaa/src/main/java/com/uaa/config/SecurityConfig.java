@@ -6,26 +6,30 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
         //super.configure(http);
         //   http.
         // http.formLogin(Customizer.withDefaults()).authorizeRequests(req-> req.mvcMatchers("/api/greeting").authenticated());
-        http
+        http.authorizeRequests(req -> req.mvcMatchers("/api/**").authenticated())
                 .csrf(csrf -> csrf.disable())
                 .httpBasic(Customizer.withDefaults())
-                .formLogin(form -> form.disable())
-                .authorizeRequests(req -> req.mvcMatchers("/api/**").authenticated())
+                .formLogin(form -> form.loginPage("/login"))
+
         ;
     }
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-       // super.configure(web);
-      //  web.ignoring().mvcMatchers();
+        // super.configure(web);
+        //  web.ignoring().mvcMatchers();
     }
 }
