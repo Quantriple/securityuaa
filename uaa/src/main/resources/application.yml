@@ -2,7 +2,7 @@ server:
   port: 8081
 logging:
   level:
-    root: debug
+    root: info
 
 
 spring:
@@ -11,3 +11,6 @@ spring:
       name: user
       password: 12345678
       roles: admin,user
+  messages:
+    basename: messages
+    encoding: UTF-8
