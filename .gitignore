@@ -3,6 +3,7 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+.gitignore
 
 ### STS ###
 .apt_generated
@@ -19,6 +20,8 @@ target/
 *.iml
 *.ipr
 .gitignore
+uaa/http-client.private.env.json
+
 
 ### NetBeans ###
 /nbproject/private/
