@@ -1,5 +1,6 @@
 package com.uaa.domain.dto;
 
+import com.uaa.annotation.ValidPassword;
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
@@ -18,7 +19,7 @@ public class UserDto {
     @NotBlank
     @Size(min = 4,max = 8,message = "用户名的长度在4-8个字之间")
     private String username;
-    @NotNull
+    @ValidPassword
     private String password;
     private String email;
     private String name;
