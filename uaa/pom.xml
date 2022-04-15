@@ -18,6 +18,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <start-class>com.uaa.UaaApplication</start-class>
         <bootstrap.version>4.5.0</bootstrap.version>
+        <problem.version>0.26.2</problem.version>
     </properties>
     <dependencies>
        <!-- 后端集成页面(暂时)-->
@@ -61,7 +62,12 @@
             <artifactId>passay</artifactId>
             <version>1.6.0</version>
         </dependency>
-
+        <!-- Problem 依赖 -->
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>problem-spring-web</artifactId>
+            <version>${problem.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>

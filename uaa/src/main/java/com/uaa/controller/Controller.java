@@ -1,7 +1,10 @@
 package com.uaa.controller;
 
 
+import com.uaa.domain.dto.UserDto;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api")
@@ -14,7 +17,8 @@ public class Controller {
 
 
     @PostMapping("/greeting")
-    public String sayHello(@RequestParam String name){
-        return  "hello"+name;
+    public String sayHello(@Valid  @RequestBody UserDto userDto){
+        System.out.println(userDto);
+        return  "hello"+userDto.toString();
     }
 }
