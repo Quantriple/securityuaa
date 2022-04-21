@@ -19,6 +19,7 @@
         <start-class>com.uaa.UaaApplication</start-class>
         <bootstrap.version>4.5.0</bootstrap.version>
         <problem.version>0.26.2</problem.version>
+        <mysql.version>8.0.23</mysql.version>
     </properties>
     <dependencies>
        <!-- 后端集成页面(暂时)-->
@@ -63,6 +64,15 @@
             <version>1.6.0</version>
         </dependency>
         <!-- Problem 依赖 -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.zalando</groupId>
             <artifactId>problem-spring-web</artifactId>

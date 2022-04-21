@@ -16,3 +16,13 @@ spring:
     throw-exception-if-no-handler-found: true
   resources:
     add-mappings: false
+  driver-class-name: com.mysql.cj.jdbc.Driver # mysql 8
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/springboot_test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+mybatis:
+  type-aliases-package: com.wzx.demo04mybatis.domain #别名
+  mapper-locations: classpath:com.wzx.demo04mybatis.dao/*.xml #xml文件
+  #使用注解在启动类上面配置 @MapperScan("com.wzx.demo04mybatis.dao")//存放接口
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #mybatis日志
