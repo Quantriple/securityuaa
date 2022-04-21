@@ -3,7 +3,6 @@ package com.uaa.validation;
 import com.uaa.annotation.ValidPassword;
 import lombok.RequiredArgsConstructor;
 import org.passay.*;
-import org.passay.spring.SpringMessageResolver;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
@@ -18,7 +17,7 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class PasswordConstraintValidator implements ConstraintValidator<ValidPassword, String> {
 
-    private final SpringMessageResolver springMessageResolver;
+    private final MessageResolver messageResolver;
     @Override
     public void initialize(ValidPassword constraintAnnotation) {
 
@@ -27,7 +26,7 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
 
     @Override
     public boolean isValid(String password, ConstraintValidatorContext context) {
-        PasswordValidator passwordValidator = new PasswordValidator(springMessageResolver,Arrays.asList(
+        PasswordValidator passwordValidator = new PasswordValidator(messageResolver,Arrays.asList(
                 new LengthRule(8,12),
                 new CharacterRule(EnglishCharacterData.UpperCase,1),
                 new CharacterRule(EnglishCharacterData.LowerCase,1),

@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 @EnableWebSecurity(debug = true)
 @RequiredArgsConstructor
-//@Import(SecurityProblemSupport.class)
+@Import(SecurityProblemSupport.class)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 private final SecurityProblemSupport securityProblemSupport;
