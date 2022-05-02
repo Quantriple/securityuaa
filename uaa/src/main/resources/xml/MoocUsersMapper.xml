@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uaa.repository.MoocUsersMapper">
+  <resultMap id="BaseResultMap" type="com.uaa.domain.MoocUsers">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="account_non_expired" jdbcType="BIT" property="accountNonExpired" />
+    <result column="account_non_locked" jdbcType="BIT" property="accountNonLocked" />
+    <result column="credentials_non_expired" jdbcType="BIT" property="credentialsNonExpired" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="enabled" jdbcType="BIT" property="enabled" />
+    <result column="mfa_key" jdbcType="VARCHAR" property="mfaKey" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="password_hash" jdbcType="VARCHAR" property="passwordHash" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="using_mfa" jdbcType="BIT" property="usingMfa" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, account_non_expired, account_non_locked, credentials_non_expired, email, enabled, 
+    mfa_key, mobile, `name`, password_hash, username, using_mfa
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mooc_users
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mooc_users
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.uaa.domain.MoocUsers">
+    insert into mooc_users (id, account_non_expired, account_non_locked, 
+      credentials_non_expired, email, enabled, 
+      mfa_key, mobile, `name`, 
+      password_hash, username, using_mfa
+      )
+    values (#{id,jdbcType=BIGINT}, #{accountNonExpired,jdbcType=BIT}, #{accountNonLocked,jdbcType=BIT}, 
+      #{credentialsNonExpired,jdbcType=BIT}, #{email,jdbcType=VARCHAR}, #{enabled,jdbcType=BIT}, 
+      #{mfaKey,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{passwordHash,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{usingMfa,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.uaa.domain.MoocUsers">
+    insert into mooc_users
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="accountNonExpired != null">
+        account_non_expired,
+      </if>
+      <if test="accountNonLocked != null">
+        account_non_locked,
+      </if>
+      <if test="credentialsNonExpired != null">
+        credentials_non_expired,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="enabled != null">
+        enabled,
+      </if>
+      <if test="mfaKey != null">
+        mfa_key,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="passwordHash != null">
+        password_hash,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="usingMfa != null">
+        using_mfa,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="accountNonExpired != null">
+        #{accountNonExpired,jdbcType=BIT},
+      </if>
+      <if test="accountNonLocked != null">
+        #{accountNonLocked,jdbcType=BIT},
+      </if>
+      <if test="credentialsNonExpired != null">
+        #{credentialsNonExpired,jdbcType=BIT},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=BIT},
+      </if>
+      <if test="mfaKey != null">
+        #{mfaKey,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="passwordHash != null">
+        #{passwordHash,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="usingMfa != null">
+        #{usingMfa,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.uaa.domain.MoocUsers">
+    update mooc_users
+    <set>
+      <if test="accountNonExpired != null">
+        account_non_expired = #{accountNonExpired,jdbcType=BIT},
+      </if>
+      <if test="accountNonLocked != null">
+        account_non_locked = #{accountNonLocked,jdbcType=BIT},
+      </if>
+      <if test="credentialsNonExpired != null">
+        credentials_non_expired = #{credentialsNonExpired,jdbcType=BIT},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        enabled = #{enabled,jdbcType=BIT},
+      </if>
+      <if test="mfaKey != null">
+        mfa_key = #{mfaKey,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="passwordHash != null">
+        password_hash = #{passwordHash,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="usingMfa != null">
+        using_mfa = #{usingMfa,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.uaa.domain.MoocUsers">
+    update mooc_users
+    set account_non_expired = #{accountNonExpired,jdbcType=BIT},
+      account_non_locked = #{accountNonLocked,jdbcType=BIT},
+      credentials_non_expired = #{credentialsNonExpired,jdbcType=BIT},
+      email = #{email,jdbcType=VARCHAR},
+      enabled = #{enabled,jdbcType=BIT},
+      mfa_key = #{mfaKey,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      password_hash = #{passwordHash,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      using_mfa = #{usingMfa,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

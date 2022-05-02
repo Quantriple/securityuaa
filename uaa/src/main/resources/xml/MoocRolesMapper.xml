@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uaa.repository.MoocRolesMapper">
+  <resultMap id="BaseResultMap" type="com.uaa.domain.MoocRoles">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="display_name" jdbcType="VARCHAR" property="displayName" />
+    <result column="built_in" jdbcType="BIT" property="builtIn" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, role_name, display_name, built_in
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from mooc_roles
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from mooc_roles
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.uaa.domain.MoocRoles">
+    insert into mooc_roles (id, role_name, display_name, 
+      built_in)
+    values (#{id,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR}, #{displayName,jdbcType=VARCHAR}, 
+      #{builtIn,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.uaa.domain.MoocRoles">
+    insert into mooc_roles
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="roleName != null">
+        role_name,
+      </if>
+      <if test="displayName != null">
+        display_name,
+      </if>
+      <if test="builtIn != null">
+        built_in,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="roleName != null">
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="displayName != null">
+        #{displayName,jdbcType=VARCHAR},
+      </if>
+      <if test="builtIn != null">
+        #{builtIn,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.uaa.domain.MoocRoles">
+    update mooc_roles
+    <set>
+      <if test="roleName != null">
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="displayName != null">
+        display_name = #{displayName,jdbcType=VARCHAR},
+      </if>
+      <if test="builtIn != null">
+        built_in = #{builtIn,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.uaa.domain.MoocRoles">
+    update mooc_roles
+    set role_name = #{roleName,jdbcType=VARCHAR},
+      display_name = #{displayName,jdbcType=VARCHAR},
+      built_in = #{builtIn,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
