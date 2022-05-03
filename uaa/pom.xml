@@ -20,6 +20,7 @@
         <bootstrap.version>4.5.0</bootstrap.version>
         <problem.version>0.26.2</problem.version>
         <mysql.version>8.0.23</mysql.version>
+        <mybatis.version>2.1.4</mybatis.version>
     </properties>
     <dependencies>
        <!-- 后端集成页面(暂时)-->
@@ -67,6 +68,7 @@
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis.version}</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>
