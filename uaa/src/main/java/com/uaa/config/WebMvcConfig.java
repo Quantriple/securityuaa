@@ -1,6 +1,7 @@
 package com.uaa.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.uaa.passay.PassayPropertiesMessageResolver;
 import lombok.RequiredArgsConstructor;
 import org.passay.MessageResolver;
 import org.passay.spring.SpringMessageResolver;
@@ -24,12 +25,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Bean
     public ObjectMapper objectMapper() {
         return new ObjectMapper().registerModules(
-            new ProblemModule(),
-            new ConstraintViolationProblemModule());
+                new ProblemModule(),
+                new ConstraintViolationProblemModule());
     }
 
     /**
      * 配置 Java Validation 使用国际化的消息资源
+     *
      * @return LocalValidatorFactoryBean
      */
     @Bean
@@ -41,18 +43,19 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     /**
      * 配置 Passay 使用 Spring 的 MessageSource
+     *
      * @return MessageResolver
      */
     @Bean
     public MessageResolver messageResolver() {
-        return new SpringMessageResolver(messageSource);
+        return new PassayPropertiesMessageResolver(messageSource);
     }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/webjars/**")
-            .addResourceLocations("/webjars/")
-            .resourceChain(false);
+                .addResourceLocations("/webjars/")
+                .resourceChain(false);
         registry.setOrder(1);
     }
 

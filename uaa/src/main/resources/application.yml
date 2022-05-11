@@ -5,6 +5,12 @@ logging:
     root: info
 
 spring:
+  messages:
+    always-use-message-format: false
+    basename: messages
+    encoding: UTF-8
+    fallback-to-system-locale: true
+    use-code-as-default-message: false
   datasource:
     hikari:
       auto-commit: false
