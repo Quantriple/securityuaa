@@ -79,7 +79,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 idForEncode, new BCryptPasswordEncoder(),
                 "SHA-1", new MessageDigestPasswordEncoder("SHA-1")
         );*/
-        encoders.put("idForEncode", new BCryptPasswordEncoder());
+        encoders.put(idForEncode, new BCryptPasswordEncoder());
         encoders.put("SHA-1", new MessageDigestPasswordEncoder("SHA-1"));
         return new DelegatingPasswordEncoder(idForEncode, encoders);
     }

@@ -4,25 +4,28 @@ logging:
   level:
     root: info
 
-
 spring:
-  messages:
-    always-use-message-format: false
-    basename: messages
-    encoding: UTF-8
-    fallback-to-system-locale: true
-    use-code-as-default-message: false
-  mvc:
-    throw-exception-if-no-handler-found: true
-  resources:
-    add-mappings: false
-  driver-class-name: com.mysql.cj.jdbc.Driver # mysql 8
+  datasource:
+    hikari:
+      auto-commit: false
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+      pool-name: Hikari
+    password: Sql@#123
+    platform: mysql
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://110.42.248.225:3306/qqq?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
-    password: 123456
-    url: jdbc:mysql://localhost:3306/springboot_test?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+  devtools:
+    add-properties: false
+    livereload:
+      enabled: false
+    restart:
+      enabled: false
+#mybatis
 mybatis:
-  type-aliases-package: com.wzx.demo04mybatis.domain #别名
-  mapper-locations: classpath:com.wzx.demo04mybatis.dao/*.xml #xml文件
-  #使用注解在启动类上面配置 @MapperScan("com.wzx.demo04mybatis.dao")//存放接口
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #mybatis日志
+  type-aliases-package: com.uaa.domain #别名
+  mapper-locations: classpath:xml/*.xml #xml文件

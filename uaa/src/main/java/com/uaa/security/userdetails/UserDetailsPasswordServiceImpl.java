@@ -7,11 +7,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsPasswordService;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 /**
  * @author TripleQ
- * @description 密码升级
+ * @description 无缝进行密码升级
  * @date 2022/5/6 08:25:31
  * @VERSION 1.0
  **/
@@ -24,7 +22,7 @@ public class UserDetailsPasswordServiceImpl implements UserDetailsPasswordServic
     public UserDetails updatePassword(UserDetails userDetails, String newPassword) {
         MoocUsers details=moocUsersMapper.selectByName(userDetails.getUsername());
         if(details==null){
-            //这里如何解决?
+           return  userDetails;
         }
         details.setPasswordHash(newPassword);
         moocUsersMapper.updateByPrimaryKey(details);
