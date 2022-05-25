@@ -25,12 +25,18 @@
     from mooc_users
     where id = #{id,jdbcType=BIGINT}
   </select>
-    <select id="selectByName" resultType="com.uaa.domain.MoocUsers">
+    <select id="selectByName" resultMap="BaseResultMap">
       select
       <include refid="Base_Column_List" />
       from mooc_users
       where name = #{name}
     </select>
+  <select id="selectByUsername" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from mooc_users
+    where username = #{username}
+  </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from mooc_users
     where id = #{id,jdbcType=BIGINT}

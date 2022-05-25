@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.uaa.passay.PassayPropertiesMessageResolver;
 import lombok.RequiredArgsConstructor;
 import org.passay.MessageResolver;
-import org.passay.spring.SpringMessageResolver;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

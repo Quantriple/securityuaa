@@ -1,5 +1,6 @@
 package com.uaa.security.userdetails;
 
+import com.uaa.domain.MoocUsers;
 import com.uaa.repository.MoocUsersMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,7 +20,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     private final MoocUsersMapper moocUsersMapper;
     @Override
-    public UserDetails loadUserByUsername(String name) throws UsernameNotFoundException {
-        return null;
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        MoocUsers moocUsers = moocUsersMapper.selectByUsername(username);
+        System.out.println(moocUsers);
+        if(null==moocUsers) return new MoocUsers();
+        return moocUsers;
     }
 }

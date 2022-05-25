@@ -14,6 +14,8 @@ public interface MoocUsersMapper {
 
     MoocUsers selectByName(@Param("name") String name);
 
+    MoocUsers selectByUsername(@Param("username") String username);
+
     int updateByPrimaryKeySelective(MoocUsers record);
 
     int updateByPrimaryKey(MoocUsers record);
