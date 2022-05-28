@@ -35,3 +35,26 @@ spring:
 mybatis:
   type-aliases-package: com.uaa.domain #别名
   mapper-locations: classpath:xml/*.xml #xml文件
+
+mooc:
+  email-provider:
+    api-key: ${EMAIL_API_KEY}
+    name: api
+  jwt:
+    access-token-expire-time: 300000
+    header: Authorization
+    prefix: "Bearer "
+    refresh-token-expire-time: 2592000000
+    key: ${JWT_KEY}
+    refresh-key: ${JWT_REFRESH_KEY}
+  security:
+    role-hierarchy-enabled: true
+  sms-provider:
+    api-url: ${SMS_API_URL}
+    name: ${SMS_PROVIDER_NAME}
+  lean-cloud:
+    app-id: ${LEAN_CLOUD_APP_ID}
+    app-key: ${LEAN_CLOUD_APP_KEY}
+  ali:
+    api-key: ${ALI_API_KEY}
+    api-secret: ${ALI_API_SECRET}
