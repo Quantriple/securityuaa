@@ -35,6 +35,7 @@ public class JwtFilter extends OncePerRequestFilter {
 
     }
 
+    //从request校验是否是我们自己定义的前缀
     private boolean checkJwtToken(HttpServletRequest request) {
         String header = request.getHeader(appProperties.getJwt().getHeader());
         return header != null && header.startsWith(appProperties.getJwt().getPrefix()) ? true : false;
