@@ -78,6 +78,7 @@
                     <configuration>
                         <showDeprecation>true</showDeprecation>
                         <showWarnings>true</showWarnings>
+                        <encoding>UTF-8</encoding>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
                         <!--                    <annotationProcessorPaths>

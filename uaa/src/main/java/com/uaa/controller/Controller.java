@@ -5,13 +5,19 @@ import com.uaa.domain.dto.UserDto;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @RestController
 @RequestMapping("/api")
 public class Controller {
 
-    @GetMapping("/greeting")
-    public String hello(){
+    private AtomicInteger ai=new AtomicInteger(1);
+
+    @GetMapping("/greeting/")
+    public String hello() throws InterruptedException {
+        System.out.println("ai11"+ai.getAndIncrement());
+       // Thread.sleep(TimeUnit.MINUTES.toMinutes(1L));
         return  "hello";
     }
 

@@ -1,4 +1,4 @@
-package com.uaa.jwt;
+package com.uaa.security.jwt;
 
 import com.uaa.config.AppProperties;
 import io.jsonwebtoken.Claims;
@@ -11,11 +11,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Stack;
 
 /**
  * @author TripleQ
- * @description 继承OncePerRequestFilter 而不继承Filter的原因是 serlvet版本的不同会略有差异，所以使用spring的话 用这个比较好
+ * @description 缁ф壙OncePerRequestFilter 鑰屼笉缁ф壙Filter鐨勫師鍥犳槸 serlvet鐗堟湰鐨勪笉鍚屼細鐣ユ湁宸紓锛屾墍浠ヤ娇鐢╯pring鐨勮瘽 鐢ㄨ繖涓瘮杈冨ソ
  * @date 2022/5/28 16:57:36
  * @VERSION 1.0
  **/
@@ -25,10 +24,10 @@ public class JwtFilter extends OncePerRequestFilter {
 
     private final AppProperties appProperties;
 
-    @Override
+  @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         if (checkJwtToken(httpServletRequest)) {
-            // TODO 验证token是否正常
+            // TODO 楠岃瘉token鏄惁姝ｅ父
 
         }
 
@@ -36,12 +35,14 @@ public class JwtFilter extends OncePerRequestFilter {
 
     }
 
-    //从request校验是否是我们自己定义的前缀
+    //浠巖equest鏍￠獙鏄惁鏄垜浠嚜宸卞畾涔夌殑鍓嶇紑
     private boolean checkJwtToken(HttpServletRequest request) {
         String header = request.getHeader(appProperties.getJwt().getHeader());
         return header != null && header.startsWith(appProperties.getJwt().getPrefix()) ? true : false;
 
     }
 
-  //  private Claims
+    /*private Claims checkClaims(){
+
+    }*/
 }

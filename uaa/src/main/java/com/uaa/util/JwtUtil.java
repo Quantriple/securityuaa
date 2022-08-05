@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Component
 public class JwtUtil {
 
-    private final Key key; // 用于签名 Access Token
+   /* private final Key key; // 用于签名 Access Token
     private final Key refreshKey; // 用于签名 Refresh Token
     private final AppProperties appProperties;
 
@@ -33,14 +33,14 @@ public class JwtUtil {
         return createJWTToken(userDetails, timeToExpire, key);
     }
 
-    /**
+    *//**
      * 根据用户信息生成一个 JWT
      *
      * @param userDetails  用户信息
      * @param timeToExpire 毫秒单位的失效时间
      * @param signKey      签名使用的 key
      * @return JWT
-     */
+     *//*
     public String createJWTToken(UserDetails userDetails, long timeToExpire, Key signKey) {
         return Jwts
             .builder()
@@ -97,5 +97,5 @@ public class JwtUtil {
 
     public Key getRefreshKey() {
         return refreshKey;
-    }
+    }*/
 }

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity(debug = false)
 @RequiredArgsConstructor
 @Import(SecurityProblemSupport.class)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -60,8 +60,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         // super.configure(web);
         //  web.ignoring().mvcMatchers();
-        web.ignoring().mvcMatchers("/public/**", "/api/greeting")
-                .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+      /*  web.ignoring().mvcMatchers("/public/**", "/api/greeting")
+                .requestMatchers(PathRequest.toStaticResources().atCommonLocations());*/
+        web.ignoring().antMatchers("/api/greeting") .requestMatchers(PathRequest.toStaticResources().atCommonLocations());;
     }
 
     @Override
