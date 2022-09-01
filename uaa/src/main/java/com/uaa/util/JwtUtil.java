@@ -9,7 +9,10 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.spec.SecretKeySpec;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.StandardCharsets;
 import java.security.Key;
+import java.util.Arrays;
 import java.util.Base64;
 import java.util.Date;
 import java.util.Optional;
@@ -98,5 +101,12 @@ public class JwtUtil {
 
     public Key getRefreshKey() {
         return refreshKey;
+    }
+
+    public static void main(String[] args) throws UnsupportedEncodingException {
+        byte[] encode = Base64.getEncoder().encode("qqq".getBytes(StandardCharsets.UTF_8));
+        System.out.println(Arrays.toString(encode));
+        byte[] decode = Base64.getDecoder().decode(new byte[]{99, 88, 70, 120});
+        System.out.println(new String(decode));
     }
 }

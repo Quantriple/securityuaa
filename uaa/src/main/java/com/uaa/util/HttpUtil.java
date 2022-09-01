@@ -14,23 +14,13 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.util.EntityUtils;
-import org.jsoup.Connection;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ThreadPoolExecutor;
 
 
 public class HttpUtil {
@@ -120,7 +110,7 @@ public class HttpUtil {
         return result;
     }
 
-    public static void doGetjd(int i, int page, FileOutputStream fos) throws Exception {
+    /*public static void doGetjd(int i, int page, FileOutputStream fos) throws Exception {
         String keyword = "java";
         //获取请求连接，需要联网
         String url;
@@ -145,10 +135,10 @@ public class HttpUtil {
        // map.put("Cookie","")
         Map<String, String> map1 = string2Map("fontFamily=null; fontColor=null; fontSize=null; bg=null; Hm_lvt_74e7ec5497e79ec99adee89aaa642f0b=1660962682; bookid=33016; booklist=%257B%2522BookId%2522%253A33016%252C%2522ChapterId%2522%253A4222820%252C%2522ChapterName%2522%253A%2522%25u7B2C1%25u7AE0%2522%257D; Hm_lpvt_74e7ec5497e79ec99adee89aaa642f0b=fontFamily=null; fontColor=null; fontSize=null; bg=null; Hm_lvt_74e7ec5497e79ec99adee89aaa642f0b=1660962682; bookid=33016; booklist=%7B%22BookId%22%3A33016%2C%22ChapterId%22%3A4222821%2C%22ChapterName%22%3A%22%u7B2C2%u7AE0%22%7D; Hm_lpvt_74e7ec5497e79ec99adee89aaa642f0b=fontFamily=null; fontColor=null; fontSize=null; bg=null; Hm_lvt_74e7ec5497e79ec99adee89aaa642f0b=1660962682; bookid=33016; booklist=%7B%22BookId%22%3A33016%2C%22ChapterId%22%3A4222821%2C%22ChapterName%22%3A%22%u7B2C2%u7AE0%22%7D;");
         map1.put("Hm_lpvt_74e7ec5497e79ec99adee89aaa642f0b",String.valueOf(System.currentTimeMillis()));
-/*        String document1 = Jsoup.connect(url).method(Connection.Method.GET)
+*//*        String document1 = Jsoup.connect(url).method(Connection.Method.GET)
                 .cookies(map1).
                         get().body().text();
-        System.out.println(document1);*/
+        System.out.println(document1);*//*
         //获取div，js里面的方法这里都能用  pt-pop
         Document document1 = Jsoup.connect(url).method(Connection.Method.GET).timeout(30000)
                 .cookies(map1).get();
@@ -170,7 +160,7 @@ public class HttpUtil {
 
         }
         fos.write(stringBuilder.toString().getBytes(StandardCharsets.UTF_8));
-    }
+    }*/
 
     public static Map<String,String> string2Map(String s){
         String[] split = s.split(";");

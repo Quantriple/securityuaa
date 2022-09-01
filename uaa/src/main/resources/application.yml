@@ -45,8 +45,10 @@ mooc:
     header: Authorization
     prefix: "Bearer "
     refresh-token-expire-time: 2592000000
-    key: ${JWT_KEY}
-    refresh-key: ${JWT_REFRESH_KEY}
+    #${JWT_KEY}
+    key: cXFx
+    #${JWT_REFRESH_KEY}
+    refresh-key: cXFx
   security:
     role-hierarchy-enabled: true
   sms-provider:

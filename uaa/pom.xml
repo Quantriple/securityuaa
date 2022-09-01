@@ -114,8 +114,8 @@
             <version>4.5.13</version>
         </dependency>
 
-        <dependency>
-            <!-- jsoup -->
+        <!--<dependency>
+            &lt;!&ndash; jsoup &ndash;&gt;
             <groupId>org.jsoup</groupId>
             <artifactId>jsoup</artifactId>
             <version>1.13.1</version>
@@ -124,7 +124,7 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>5.8.5</version>
-        </dependency>
+        </dependency>-->
     </dependencies>
     <build>
         <plugins>
