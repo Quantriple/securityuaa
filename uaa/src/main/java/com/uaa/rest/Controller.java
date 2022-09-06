@@ -1,11 +1,10 @@
-package com.uaa.controller;
+package com.uaa.rest;
 
 
 import com.uaa.domain.dto.UserDto;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 @RestController

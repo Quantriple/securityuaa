@@ -43,20 +43,20 @@ public class JwtUtil {
      * @param timeToExpire 毫秒单位的失效时间
      * @param signKey      签名使用的 key
      * @return JWT
-     * */
+     */
 
     public String createJWTToken(UserDetails userDetails, long timeToExpire, Key signKey) {
         return Jwts
-            .builder()
-            .setId("imooc")
-            .setSubject(userDetails.getUsername())
-            .claim("authorities",
-                userDetails.getAuthorities().stream()
-                    .map(GrantedAuthority::getAuthority)
-                    .collect(Collectors.toList()))
-            .setIssuedAt(new Date(System.currentTimeMillis()))
-            .setExpiration(new Date(System.currentTimeMillis() + timeToExpire))
-            .signWith(signKey, SignatureAlgorithm.HS512).compact();
+                .builder()
+                .setId("imooc")
+                .setSubject(userDetails.getUsername())
+                .claim("authorities",
+                        userDetails.getAuthorities().stream()
+                                .map(GrantedAuthority::getAuthority)
+                                .collect(Collectors.toList()))
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + timeToExpire))
+                .signWith(signKey, SignatureAlgorithm.HS512).compact();
     }
 
     public String createAccessToken(UserDetails userDetails) {
