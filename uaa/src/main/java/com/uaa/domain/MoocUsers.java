@@ -21,12 +21,12 @@ public class MoocUsers implements UserDetails {
     private String passwordHash;
     private String username;
     private Boolean usingMfa;
-    private Set<MoocRoles>  Authorities;
+    private Set<MoocRoles>  authorities;
 
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Authorities;
+        return authorities;
     }
 
     @Override

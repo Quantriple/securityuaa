@@ -14,7 +14,9 @@
     <result column="password_hash" jdbcType="VARCHAR" property="passwordHash" />
     <result column="username" jdbcType="VARCHAR" property="username" />
     <result column="using_mfa" jdbcType="BIT" property="usingMfa" />
+    <collection property="authorities" javaType="java.util.List" resultMap=""  />
   </resultMap>
+  <resultMap id="" type=""
   <sql id="Base_Column_List">
     id, account_non_expired, account_non_locked, credentials_non_expired, email, enabled, 
     mfa_key, mobile, `name`, password_hash, username, using_mfa
@@ -34,6 +36,7 @@
   <select id="selectByUsername" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
+
     from mooc_users
     where username = #{username}
   </select>
