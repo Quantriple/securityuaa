@@ -35,6 +35,8 @@ spring:
 mybatis:
   type-aliases-package: com.uaa.domain #别名
   mapper-locations: classpath:xml/*.xml #xml文件
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 mooc:
   email-provider:
@@ -46,9 +48,9 @@ mooc:
     prefix: "Bearer "
     refresh-token-expire-time: 2592000000
     #${JWT_KEY}
-    key: cXFx
+    key: 5YWo5aWH5p2D5piv5Liq5aSn5biF5ZOl77yM5ZOI5ZOI5ZOI5ZOI5ZOI77yM5Lu75bCR5a6H5piv5Liq5aSn576O5aWz77yM5bCP5p+S5p+S5Lmf5piv5Liq5aSn576O5aWz
     #${JWT_REFRESH_KEY}
-    refresh-key: cXFx
+    refresh-key: 5YWo5aWH5p2D5piv5Liq5aSn5biF5ZOl77yM5ZOI5ZOI5ZOI5ZOI5ZOI77yM5Lu75bCR5a6H5piv5Liq5aSn576O5aWz77yM5bCP5p+S5p+S5Lmf5piv5Liq5aSn576O5aWz
   security:
     role-hierarchy-enabled: true
   sms-provider:

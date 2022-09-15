@@ -21,7 +21,8 @@ public class MoocUsers implements UserDetails {
     private String passwordHash;
     private String username;
     private Boolean usingMfa;
-    private Set<MoocRoles>  authorities;
+    private Set<MoocRoles> authorities;
+
 
 
     @Override
