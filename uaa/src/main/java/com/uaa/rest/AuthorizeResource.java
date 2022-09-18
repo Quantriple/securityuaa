@@ -5,10 +5,7 @@ import com.uaa.domain.Auth;
 import com.uaa.domain.dto.LoginDto;
 import com.uaa.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/authorize")
@@ -21,6 +18,14 @@ public class AuthorizeResource {
     @PostMapping("/token")
     public Auth login(@RequestBody LoginDto loginDto) throws Exception {
 
+        return userService.login(loginDto.getUsername(), loginDto.getPassword());
+    }
+
+    @PostMapping("/token/refresh")
+    public Auth refreshToken(@RequestHeader(value = "Authorization") String authorization,
+                             @RequestParam(value = "refreshToken") String refreshToken) throws Exception {
+        String prefix = "Bearer ";
+        String replace = authorization.replace(prefix, "");
         return userService.login(loginDto.getUsername(), loginDto.getPassword());
     }
 
