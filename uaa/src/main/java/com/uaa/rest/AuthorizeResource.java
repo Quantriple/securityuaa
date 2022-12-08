@@ -26,7 +26,8 @@ public class AuthorizeResource {
                              @RequestParam(value = "refreshToken") String refreshToken) throws Exception {
         String prefix = "Bearer ";
         String replace = authorization.replace(prefix, "");
-        return userService.login(loginDto.getUsername(), loginDto.getPassword());
+       // return userService.login(loginDto.getUsername(), loginDto.getPassword());
+        return null;
     }
 
 }

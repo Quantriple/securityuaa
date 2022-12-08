@@ -13,7 +13,7 @@ public class Controller {
 
     private AtomicInteger ai=new AtomicInteger(1);
 
-    @GetMapping("/greeting/")
+    @GetMapping("/greeting")
     public String hello() throws InterruptedException {
         System.out.println("ai11"+ai.getAndIncrement());
        // Thread.sleep(TimeUnit.MINUTES.toMinutes(1L));

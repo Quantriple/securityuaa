@@ -14,8 +14,6 @@
 
 
     <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
         <start-class>com.uaa.UaaApplication</start-class>
         <bootstrap.version>4.5.0</bootstrap.version>
         <problem.version>0.26.2</problem.version>

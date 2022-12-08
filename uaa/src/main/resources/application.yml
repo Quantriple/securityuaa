@@ -3,7 +3,6 @@ server:
 logging:
   level:
     root: info
-
 spring:
   messages:
     always-use-message-format: false
@@ -20,8 +19,7 @@ spring:
         prepStmtCacheSqlLimit: 2048
         useServerPrepStmts: true
       pool-name: Hikari
-    password: Sql@#123
-    platform: mysql
+    password: 123456
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:mysql://110.42.248.225:3306/qqq?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
@@ -31,6 +29,9 @@ spring:
       enabled: false
     restart:
       enabled: false
+  sql:
+    init:
+      platform: mysql
 #mybatis
 mybatis:
   type-aliases-package: com.uaa.domain #别名
