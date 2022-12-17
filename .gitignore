@@ -22,7 +22,8 @@ target/
 *.ipr
 .gitignore
 uaa/http-client.private.env.json
-
+iot/src/main/resources/rebel.xml
+uaa/src/main/resources/rebel.xml
 
 ### NetBeans ###
 /nbproject/private/
